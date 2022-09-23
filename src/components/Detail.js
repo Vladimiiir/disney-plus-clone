@@ -5,7 +5,7 @@ function Detail() {
   return (
     <Container>
       <Background>
-        <img src="/images/bao-image.webp" />
+        <img src="/images/bao-disney.jpeg" />
       </Background>
       <ImgTitle>
         <img src="/images/bao-title.png" />
@@ -52,7 +52,7 @@ const Background = styled.image`
   left: 0;
   bottom: 0;
   z-index: -1;
-  opacity: 0.8;
+  // opacity: 0.8;
 
   img {
     width: 100%;
