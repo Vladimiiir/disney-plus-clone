@@ -1,30 +1,25 @@
-import firebase from "./firebase";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+// import { getStorage } from "firebase/storage"
 
-// Firebase configuration file -> gives us access to the actual db
 const firebaseConfig = {
-  apiKey: "AIzaSyA9BnlX96fMf7XiUVCFRsoQzG8DGERJkeY",
-  authDomain: "disneyplus-clone-a33d5.firebaseapp.com",
-  projectId: "disneyplus-clone-a33d5",
-  storageBucket: "disneyplus-clone-a33d5.appspot.com",
-  messagingSenderId: "37918794208",
-  appId: "1:37918794208:web:dbe9842dfe1dda522a4b85",
-  measurementId: "G-DRVLJKWRWG",
+  apiKey: "AIzaSyC5MAamxpV2HmQAbcsONAkgI7tntjIu6Jo",
+  authDomain: "disney-plus-clone-5e245.firebaseapp.com",
+  projectId: "disney-plus-clone-5e245",
+  storageBucket: "disney-plus-clone-5e245.appspot.com",
+  messagingSenderId: "343287083013",
+  appId: "1:343287083013:web:78570b07a9232d39e2ac6c",
+  measurementId: "G-2EXYV3LHYR"
 };
 
-// initialize firebase app
 const firebaseApp = firebase.initializeApp(firebaseConfig);
-
-// firestore is the actual db
 const db = firebaseApp.firestore();
-
-// to be able to log in and log out
 const auth = firebase.auth();
+// const provider = new firebase.auth.GoogleAuthProvider();
+// const storage = firebase.storage();
 
-// using Google authentication
-const provider = new firebase.auth.GoogleAuthProvider();
+// export const storage = getStorage(firebaseApp);
 
-// to store changes
-const storage = firebase.storage();
-
-export { auth, provider, storage };
+export { auth };
 export default db;

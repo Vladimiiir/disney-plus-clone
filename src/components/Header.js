@@ -1,37 +1,52 @@
 import React from 'react'
 import styled from 'styled-components'
+// import { auth, provider } from '../firebase'
 
 function Header() {
+
+    // const handleAuth = () => {
+    //     auth
+    //     .signInWithPopup(provider)
+    //     .then((result) => {
+    //         console.log(result);
+    //     })
+    //     .catch((error) => {
+    //         alert(error.message);
+    //     });
+    // };
+
   return (
         <Nav>
             <Logo src="/images/logo.svg" />
             <NavMenu>
                 <a>
-                    <img src="./images/home-icon.svg"/>
+                    <img src="./images/home-icon.svg" alt=''/>
                     <span>Home</span>
                 </a>
                 <a>
-                    <img src="./images/search-icon.svg"/>
+                    <img src="./images/search-icon.svg" alt=''/>
                     <span>Search</span>
                 </a>
                 <a>
-                    <img src="./images/watchlist-icon.svg"/>
+                    <img src="./images/watchlist-icon.svg" alt=''/>
                     <span>Watchlist</span>
                 </a>
                 <a>
-                    <img src="./images/original-icon.svg"/>
+                    <img src="./images/original-icon.svg" alt=''/>
                     <span>Originals</span>
                 </a>
                 <a>
-                    <img src="./images/movie-icon.svg"/>
+                    <img src="./images/movie-icon.svg" alt=''/>
                     <span>Movies</span>
                 </a>
                 <a>
-                    <img src="./images/series-icon.svg"/>
+                    <img src="./images/series-icon.svg" alt=''/>
                     <span>Series</span>
                 </a>
             </NavMenu>
-            <UserImg src="./images/Vladimir_Picture.JPEG" />
+            <UserImg
+            // onClick={console.log("Hi")}
+            src="./images/me.jpeg" />
         </Nav>
   )
 }
