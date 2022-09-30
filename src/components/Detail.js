@@ -1,37 +1,65 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
+import db from '../firebase';
 
 function Detail() {
+
+  const { id } = useParams();
+  const [movie, setMovie] = useState();
+
+  useEffect(() => {
+    // grab the movie info from db
+    db.collection("movies")
+    .doc(id)
+    .get()
+    .then((doc) => {
+      if(doc.exists) {
+        // save the movie data
+        setMovie(doc.data());
+      } else {
+        // redirect to homepage
+
+      }
+    })
+  }, [])
+
+  // console.log("Movie is", movie);
+
   return (
     <Container>
-      <Background>
-        <img src="/images/bao-disney.jpeg" />
-      </Background>
-      <ImgTitle>
-        <img src="/images/bao-title.png" />
-      </ImgTitle>
-      <Controls>
-        <PlayButton>
-          <img src="/images/play-icon-black.png" />
-          <span>Play</span>
-        </PlayButton>
-        <TrailerButton>
-          <img src="/images/play-icon-white.png" />
-          <span>Trailer</span>
-        </TrailerButton>
-        <AddButton>
-          <span>+</span>
-        </AddButton>
-        <GroupWatchButton>
-          <img src="images/group-icon.png" />
-        </GroupWatchButton>
-      </Controls>
-      <Subtitle>
-        2018 - 7m - Family, Fantasy, Kids, Animation
-      </Subtitle>
-      <Description>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </Description>
+      {movie && (
+        <>
+          <Background>
+            <img src={movie.backgroundImg} />
+          </Background>
+          <ImgTitle>
+            <img src={movie.titleImg} />
+          </ImgTitle>
+          <Controls>
+            <PlayButton>
+              <img src="/images/play-icon-black.png" />
+              <span>Play</span>
+            </PlayButton>
+            <TrailerButton>
+              <img src="/images/play-icon-white.png" />
+              <span>Trailer</span>
+            </TrailerButton>
+            <AddButton>
+              <span>+</span>
+            </AddButton>
+            <GroupWatchButton>
+              <img src="images/group-icon.png" />
+            </GroupWatchButton>
+          </Controls>
+          <Subtitle>
+            {movie.subtitle}
+          </Subtitle>
+          <Description>
+            {movie.description}
+          </Description>
+        </>
+      )}
     </Container>
   )
 }

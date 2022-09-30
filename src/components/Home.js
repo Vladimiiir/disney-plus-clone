@@ -13,7 +13,7 @@ function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("hello");
+    // console.log("hello");
     db.collection("movies").onSnapshot((snapshot) => {
       // console.log(snapshot);
       let tempMovies = snapshot.docs.map((doc)=>{
